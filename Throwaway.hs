@@ -1,5 +1,6 @@
 module Throwaway where
     import Data.List
+    import Data.Char
 
     addNumbers :: Int
     addNumbers = 10 + 20
@@ -27,4 +28,8 @@ module Throwaway where
                 then sumOfEven (total + (head lst)) (tail lst)
                 else sumOfEven total (tail lst) 
 
-    
+    doubleList :: [Int] -> [Int] -> [Int]
+    doubleList processedList remainingList = 
+        if (remainingList == [])
+            then processedList
+            else doubleList (processedList ++ [(head remainingList) * 2]) (tail remainingList)
