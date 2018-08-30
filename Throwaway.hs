@@ -2,7 +2,7 @@ module Throwaway where
     import Data.List
 
     addNumbers :: Int
-    addNumbers = 10 + 2
+    addNumbers = 10 + 20
 
     addInts :: Int -> Int -> Int
     addInts x y = x + y
@@ -27,3 +27,4 @@ module Throwaway where
                 then sumOfEven (total + (head lst)) (tail lst)
                 else sumOfEven total (tail lst) 
 
+    
