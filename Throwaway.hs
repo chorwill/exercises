@@ -1,6 +1,5 @@
 module Throwaway where
-    import Data.List
-    import Data.Char
+    import Data.Char (toUpper)
 
     addNumbers :: Int
     addNumbers = 10 + 20
@@ -33,3 +32,19 @@ module Throwaway where
         if (remainingList == [])
             then processedList
             else doubleList (processedList ++ [(head remainingList) * 2]) (tail remainingList)
+
+    isCharPresent :: Char -> [Char] -> Bool
+    isCharPresent needle remainingString =
+        if (remainingString == [])
+            then False
+            else if (needle == (head remainingString))
+                then True 
+                else isCharPresent needle (tail remainingString)
+
+    allCharsPresent :: [Char] -> [Char] -> Bool
+    allCharsPresent remainingNeedles haystack =
+        if (remainingNeedles == [])
+            then True
+            else if isCharPresent (head remainingNeedles) haystack
+                then allCharsPresent (tail remainingNeedles) haystack
+                else False
