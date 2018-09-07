@@ -36,4 +36,19 @@ module Leap where
             else squareOfSum (remainingCount - 1) (total + remainingCount)
  
     difference :: Int -> Int
-    difference n = (squareOfSum n 0) - (sumOfSquares n 0)    
+    difference n = (squareOfSum n 0) - (sumOfSquares n 0)
+    
+    fibonacci :: Int -> Int
+    fibonacci 0 = 0
+    fibonacci 1 = 1
+    fibonacci n = fibonacci (n-1) + fibonacci (n-2)
+
+    evenSum :: Int -> Int -> Int -> Int
+    evenSum maxValue n total =
+        if total > maxValue
+            then total - fibonacci (n-1)
+            else if (mod (fibonacci n) 2) == 0 
+                then evenSum maxValue (n+1) (total + (fibonacci n))
+                else evenSum maxValue (n+1) (total)
+        
+        
