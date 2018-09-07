@@ -1,4 +1,5 @@
 module Leap where
+    import Data.Char
     
     isLeapYear :: Int -> Bool
     isLeapYear yr = 
@@ -50,5 +51,24 @@ module Leap where
             else if (mod (fibonacci n) 2) == 0 
                 then evenSum maxValue (n+1) (total + (fibonacci n))
                 else evenSum maxValue (n+1) (total)
+
+    removeHyphen :: String -> String
+    removeHyphen isbn = filter isNumber isbn
+
+    digits:: String -> [Int]
+    digits isbn = map digitToInt (removeHyphen isbn)
+
+    checkDigits :: String -> Int
+    checkDigits isbn = sum (zipWith (*) (digits isbn) [10,9,8,7,6,5,4,3,2,1])
+                
+    isValidIsbn :: String -> Bool
+    isValidIsbn isbn = 
+        if mod (checkDigits isbn) 11 == 0 && length (digits isbn) == 10
+                then True
+                else False
+
+
+        
+    
         
         
