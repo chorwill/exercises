@@ -17,3 +17,15 @@ changeMood _ = Blah
 -- 3. False
 -- 4. True
 -- 5. Not same type
+
+-- 4.9 
+-- 1. length :: Foldable t => t a -> Int
+-- a) 5 b) 3 c) 2 d) 5
+-- 3. Fractional output of length is int, need to use div
+-- 4. 6 `div` length [1, 2, 3]
+-- 5. Int -> Int -> Bool, TRUE
+-- 6. Bool
+-- 7. True, won't work different types in list, 5, False, not Bool
+
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome x = x == reverse x
