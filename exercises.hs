@@ -38,3 +38,16 @@ myAbs x =
 
 f :: (a,b) -> (c,d) -> ((b,d), (a, c))
 f x y = ((snd x, snd y), (fst x, fst y))
+
+fstring :: [Char] -> Int
+fstring xs = 
+    w `x` 1
+    where w = length xs
+          x = (+)
+
+myId = \x -> x
+
+myFst (a, b) = a
+
+-- Match types
+-- 1. a) 2. b) 3. a) 4. d)   
