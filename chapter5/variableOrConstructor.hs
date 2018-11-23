@@ -28,4 +28,14 @@ module VariableOrConstructor where
     c' x y = y
 
     r :: [a] -> [a]
-    r listA =  listA
+    r (x:xs) =  xs
+    r     [] = []
+
+    co :: (b -> c) -> (a -> b) -> (a -> c)
+    co bToC aToB = bToC . aToB  
+
+    a :: (a -> c) -> a -> a
+    a f x = x
+
+    a' :: (a -> b) -> a -> b
+    a' f x = f x
